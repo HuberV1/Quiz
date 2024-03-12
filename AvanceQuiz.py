@@ -40,6 +40,28 @@ class Marcapasos(ImplanteMedico):
     
     def obtener_frec_estimulacion(self):
         return self.__frec_estimulacion 
-        Print("hola")
+class StentCoronario(ImplanteMedico):
+    def __init__(self, material, tipo_fijacion, tamaño, longitud, diametro):
+        super().__init__(material, tipo_fijacion, tamaño)
+        self.__longitud = longitud
+        self.__diametro = diametro
+
+    def obtener_longitud(self):
+        return self.__longitud
+
+    def obtener_diametro(self):
+        return self.__diametro
+
+class ImplanteDental(ImplanteMedico):
+    def __init__(self, material, tipo_fijacion, tamaño, forma, sistema_fijacion):
+        super().__init__(material, tipo_fijacion, tamaño)
+        self.__forma = forma
+        self.__sistema_fijacion = sistema_fijacion
+
+    def obtener_forma(self):
+        return self.__forma
+
+    def obtener_sistema_fijacion(self):
+        return self.__sistema_fijacion      
 
 
