@@ -93,5 +93,27 @@ lista_pacientes = []
 # lista para implantes
 lista_implantes = [Marcapasos, StentCoronario, ImplanteDental, ProtesisCadera, ProtesisRodilla]
 
+# Funciones auxiliares
+def crear_paciente():
+    nombre = input("Ingrese el nombre del paciente: ")
+    cedula = input("Ingrese la cédula del paciente: ")
+    edad = input("Ingrese la edad del paciente: ")
+    paciente = Paciente(nombre, cedula, edad)
+    lista_pacientes.append(paciente)
+    print("Paciente creado con éxito.")
 
+def asignar_implante():
+    if not lista_pacientes:
+        print("No hay pacientes registrados.")
+        return
+
+    # Mostrar lista de pacientes
+    print("Lista de pacientes:")
+    for i, paciente in enumerate(lista_pacientes):
+        print(f"{i + 1}. {paciente.nombre}")
+
+    # Seleccionar paciente
+    num_paciente = int(input("Seleccione el número de paciente al que desea asignar un implante: "))
+    paciente_seleccionado = lista_pacientes[num_paciente - 1]
+    
 
