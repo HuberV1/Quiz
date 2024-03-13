@@ -115,5 +115,27 @@ def asignar_implante():
     # Seleccionar paciente
     num_paciente = int(input("Seleccione el número de paciente al que desea asignar un implante: "))
     paciente_seleccionado = lista_pacientes[num_paciente - 1]
+    # Mostrar tipos de implantes disponibles
+    print("\nTipos de implantes disponibles: \n1. Marcapasos\n2. Stent Coronario\n3. Implante Dental\n4. Prótesis de Cadera\n5. Prótesis de Rodilla\n")
+    
+    opcion_implante = input("Seleccione el tipo de implante que desea asignar al paciente: ")
+
+    # Crear implante según la opción seleccionada
+    if opcion_implante == "1":
+        implante = Marcapasos(material="Titanio", tipo_fijacion="Inalambrico", tamaño="Pequeño",
+                            num_electrodos=2, alambrico=False, frec_estimulacion=60)
+    elif opcion_implante == "2":
+        implante = StentCoronario(material="Acero inoxidable", tipo_fijacion="Expandible", tamaño="Mediano",
+                                longitud=30, diametro=3)
+    elif opcion_implante == "3":
+        implante = ImplanteDental(material="Porcelana", tipo_fijacion="Tornillo", tamaño="Pequeño",
+                                forma="Molar", sistema_fijacion="Implante de hueso")
+    elif opcion_implante == "4":
+        implante = ProtesisCadera(material="Titanio", tipo_fijacion="Cementada", tamaño="Grande")
+    elif opcion_implante == "5":
+        implante = ProtesisRodilla(material="Polietileno", tipo_fijacion="No cementada", tamaño="Mediano")
+    else:
+        print("Opción no válida.")
+        return
     
 
