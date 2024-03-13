@@ -166,3 +166,44 @@ def mostrar_inventario():
                 print(f"     Estado: {implante_info['estado']}")
         else:
             print("   No hay implantes asociados.")
+def editar_implantes():
+    while True:
+        print("\n--- Edición de Implantes: \n1. Agregar nuevo tipo de implante\n2. Eliminar tipo de implante\n3. Editar información de tipo de implante\n4. Visualizar inventario de tipos de implantes\n5. Regresar al menú principal\n---")
+        
+        opcion = input("Ingrese el número de la opción que desea realizar: ")
+
+        if opcion == "1":
+            agregar_nuevo_implante()
+        elif opcion == "2":
+            eliminar_implante()
+        elif opcion == "3":
+            editar_info_implante()
+        elif opcion == "4":
+            visualizar_inventario_implantes()
+        elif opcion == "5":
+            print("Regresando al menú principal...")
+            break
+        else:
+            print("Opción no válida. Por favor, ingrese un número válido.")
+
+def agregar_nuevo_implante():
+    nombre_clase = input("Ingrese el nombre de la nueva clase de implante: ")
+    nueva_clase = type(nombre_clase, (ImplanteMedico,), {})
+    lista_implantes.append(nueva_clase)
+    print(f"Clase de implante '{nombre_clase}' agregada con éxito.")
+
+def eliminar_implante():
+    if not lista_implantes:
+        print("No hay tipos de implantes registrados.")
+        return
+
+    print("Tipos de implantes registrados:")
+    for i, implante in enumerate(lista_implantes):
+        print(f"{i + 1}. {implante.__name__}")
+
+    num_implante = int(input("Seleccione el número del tipo de implante que desea eliminar: "))
+    if num_implante <= len(lista_implantes):
+        del lista_implantes[num_implante - 1]
+        print("Tipo de implante eliminado correctamente.")
+    else:
+        print("Número de tipo de implante no válido.")
