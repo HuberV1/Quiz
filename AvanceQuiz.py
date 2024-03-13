@@ -138,4 +138,12 @@ def asignar_implante():
         print("Opción no válida.")
         return
     
+    # Registrar información del implante
+    fecha_implantacion = input("Ingrese la fecha de implantación (YYYY-MM-DD): ")
+    medico_responsable = input("Ingrese el nombre del médico responsable: ")
+    estado = input("Ingrese el estado del implante: ")
+
+    # Asignar implante al paciente
+    paciente_seleccionado.asignar_implante(implante, fecha_implantacion, medico_responsable, estado)
+    print("Implante asignado con éxito.")
 
