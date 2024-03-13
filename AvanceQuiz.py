@@ -146,4 +146,23 @@ def asignar_implante():
     # Asignar implante al paciente
     paciente_seleccionado.asignar_implante(implante, fecha_implantacion, medico_responsable, estado)
     print("Implante asignado con éxito.")
+def mostrar_inventario():
+    if not lista_pacientes:
+        print("No hay pacientes registrados.")
+        return
 
+    print("Inventario de pacientes y sus implantes:")
+    for i, paciente in enumerate(lista_pacientes):
+        print(f"{i + 1}. Nombre: {paciente.nombre}, Cédula: {paciente.cedula}, Edad: {paciente.edad}")
+        if paciente.implantes_asociados:
+            print("   Implantes:")
+            for implante_info in paciente.implantes_asociados:
+                print(f"   - Tipo: {type(implante_info['implante']).__name__}")
+                print(f"     Material: {implante_info['implante'].obtener_material()}")
+                print(f"     Tipo de Fijación: {implante_info['implante'].obtener_tipo_fijacion()}")
+                print(f"     Tamaño: {implante_info['implante'].obtener_tamaño()}")
+                print(f"     Fecha de implantación: {implante_info['fecha_implantacion']}")
+                print(f"     Médico responsable: {implante_info['medico_responsable']}")
+                print(f"     Estado: {implante_info['estado']}")
+        else:
+            print("   No hay implantes asociados.")
