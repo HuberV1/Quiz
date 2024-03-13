@@ -63,5 +63,35 @@ class ImplanteDental(ImplanteMedico):
 
     def obtener_sistema_fijacion(self):
         return self.__sistema_fijacion      
+class ProtesisCadera(ImplanteMedico):
+    def __init__(self, material, tipo_fijacion, tamaño):
+        super().__init__(material, tipo_fijacion, tamaño)
+
+class ProtesisRodilla(ImplanteMedico):
+    def __init__(self, material, tipo_fijacion, tamaño):
+        super().__init__(material, tipo_fijacion, tamaño)
+
+# Definición de la clase Paciente
+class Paciente:
+    def __init__(self, nombre, cedula, edad):
+        self.nombre = nombre
+        self.cedula = cedula
+        self.edad = edad
+        self.implantes_asociados = []
+
+    def asignar_implante(self, implante, fecha_implantacion, medico_responsable, estado):
+        info_implante = {
+            'implante': implante,
+            'fecha_implantacion': fecha_implantacion,
+            'medico_responsable': medico_responsable,
+            'estado': estado
+        }
+        self.implantes_asociados.append(info_implante)
+
+# Lista para almacenar pacientes
+lista_pacientes = []
+# lista para implantes
+lista_implantes = [Marcapasos, StentCoronario, ImplanteDental, ProtesisCadera, ProtesisRodilla]
+
 
 
