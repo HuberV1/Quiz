@@ -222,4 +222,18 @@ def editar_info_implante():
         print(f"Editando información del tipo de implante '{nombre_clase}':")
         nueva_info_material = input("Ingrese el nuevo material: ")
         nueva_info_tipo_fijacion = input("Ingrese el nuevo tipo de fijación: ")
-        nueva_info_tamaño = input("Ingrese el nuevo tamaño: ")        
+        nueva_info_tamaño = input("Ingrese el nuevo tamaño: ")  
+        # Actualizar la información de la clase
+        lista_implantes[num_implante - 1].__init__ = lambda self, material=nueva_info_material, tipo_fijacion=nueva_info_tipo_fijacion, tamaño=nueva_info_tamaño: ImplanteMedico.__init__(self, material, tipo_fijacion, tamaño)
+        print("Información del tipo de implante actualizada correctamente.")
+    else:
+        print("Número de tipo de implante no válido.")
+
+def visualizar_inventario_implantes():
+    if not lista_implantes:
+        print("No hay tipos de implantes registrados.")
+        return
+
+    print("Inventario de tipos de implantes:")
+    for i, implante in enumerate(lista_implantes):
+        print(f"{i + 1}. {implante.__name__}")      
