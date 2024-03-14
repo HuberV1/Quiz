@@ -236,4 +236,21 @@ def visualizar_inventario_implantes():
 
     print("Inventario de tipos de implantes:")
     for i, implante in enumerate(lista_implantes):
-        print(f"{i + 1}. {implante.__name__}")      
+        print(f"{i + 1}. {implante.__name__}")   
+        # Menú principal
+while True:
+    print("\n--- Menú Principal\n1. Crear paciente\n2. Asignar implante a paciente\n3. Mostrar inventario de pacientes y sus implantes\n4. Edición de Implantes\n5. Salir ---")
+    opcion = input("Ingrese el número de la opción que desea realizar: ")
+    if opcion == "1":
+        crear_paciente()
+    elif opcion == "2":
+        asignar_implante()
+    elif opcion == "3":
+        mostrar_inventario()
+    elif opcion == "4":
+        editar_implantes()
+    elif opcion == "5":
+        print("¡Hasta luego!")
+        break
+    else:
+        print("Opción no válida. Por favor, ingrese un número válido.")   
