@@ -207,3 +207,19 @@ def eliminar_implante():
         print("Tipo de implante eliminado correctamente.")
     else:
         print("Número de tipo de implante no válido.")
+def editar_info_implante():
+    if not lista_implantes:
+        print("No hay tipos de implantes registrados.")
+        return
+
+    print("Tipos de implantes registrados:")
+    for i, implante in enumerate(lista_implantes):
+        print(f"{i + 1}. {implante.__name__}")
+
+    num_implante = int(input("Seleccione el número del tipo de implante cuya información desea editar: "))
+    if num_implante <= len(lista_implantes):
+        nombre_clase = lista_implantes[num_implante - 1].__name__
+        print(f"Editando información del tipo de implante '{nombre_clase}':")
+        nueva_info_material = input("Ingrese el nuevo material: ")
+        nueva_info_tipo_fijacion = input("Ingrese el nuevo tipo de fijación: ")
+        nueva_info_tamaño = input("Ingrese el nuevo tamaño: ")        
